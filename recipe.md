@@ -16,31 +16,28 @@ _Include the initializer, public properties, and public methods with all paramet
 ```python
 # EXAMPLE
 
-class Reminder:
+class MusicLibrary:
     # User-facing properties:
     #   name: string
 
-    def __init__(self, name):
-        # Parameters:
-        #   name: string
-        # Side effects:
-        #   Sets the name property of the self object
+    def __init__(self):
+
         pass # No code here yet
 
-    def remind_me_to(self, task):
+    def add_track(self, track_name):
         # Parameters:
-        #   task: string representing a single task
+        #   task: string representing a single track name
         # Returns:
         #   Nothing
         # Side-effects
-        #   Saves the task to the self object
+        #   Saves the track name to the list.
+        # Throws an exception if there's no track_name given.
         pass # No code here yet
 
-    def remind(self):
+    def display_library(self):
         # Returns:
-        #   A string reminding the user to do the task
+        #   A list of all the tracks in the library
         # Side-effects:
-        #   Throws an exception if no task is set
         pass # No code here yet
 ```
 
@@ -55,24 +52,26 @@ _Make a list of examples of how the class will behave in different situations._
 Given a name and a task
 #remind reminds the user to do the task
 """
-reminder = Reminder("Kay")
-reminder.remind_me_to("Walk the dog")
-reminder.remind() # => "Walk the dog, Kay!"
+music_library = MusicLibrary()
+music_library.library
+= [] # => Make sure an empty library is created
 
 """
 Given a name and no task
 #remind raises an exception
 """
-reminder = Reminder("Kay")
-reminder.remind() # raises an error with the message "No task set."
+music_library = MusicLibrary()
+music_library.add_track("Enter Sandman") # Add Enter Sandman to the list."
+['Enter Sandman']
 
 """
 Given a name and an empty task
 #remind still reminds the user to do the task, even though it looks odd
 """
-reminder = Reminder("Kay")
-reminder.remind_me_to("")
-reminder.remind() # => ", Kay!"
+music_library = MusicLibrary()
+music_library.display_library()
+['A list', 'of', 'tracks'] # => Should show all the added tracks.
+
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
